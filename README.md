@@ -10,4 +10,4 @@ The analysis requires two R packages dplyr and reshape2. These can be installed 
   <li><em>install.packages(dplyr)</em></li>
   <li><em>install.packages(reshape2)</em></li>
 </ul>  
-For completeness, the data files are compressed into UCI\ HAR\ Dataset.zip and included in the repository.
+For completeness, the cleaned dataset file is included in the repository.

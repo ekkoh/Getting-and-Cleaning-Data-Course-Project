@@ -117,9 +117,9 @@ if (files.exist())
 	colnames(subject_consolidate)<-"subjectid"
 	x<-cbind(subject_consolidate, activity, x_selected)
 
-#
-# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-#
+	#
+	# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+	#
 
 	x_dt<-tbl_df(x) %>% group_by(subjectid, activity)
 	x_melt<-melt(x_dt, id=c("subjectid", "activity"))
@@ -127,11 +127,18 @@ if (files.exist())
 	View(x_clean_data)
 
 
-	x_dt<-tbl_df(x) %>%
-	group_by(subjectid, activity)
-	x_names<-names(x_dt[c(-1, -2)])
-	dots<-sapply(x_names, function(x) substitute(mean(x), list(x=as.name(x))))
-	x_summary<-do.call(summarize, c(list(.data=x_dt), dots))
-	View(x_summary)
+
+
+	#
+	#	Alternative way to create the same results (for reference only)
+	#
+
+#	x_dt<-tbl_df(x) %>%
+#	group_by(subjectid, activity)
+#	x_names<-names(x_dt[c(-1, -2)])
+#	dots<-sapply(x_names, function(x) substitute(mean(x), list(x=as.name(x))))
+#	x_summary<-do.call(summarize, c(list(.data=x_dt), dots))
+#	View(x_summary)
 
 }
+
